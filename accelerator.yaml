@@ -1,3 +1,4 @@
+---
 accelerator:
   displayName: SvelteKit Accelerator
   description: Get started with a new SvelteKit service
@@ -5,13 +6,12 @@ accelerator:
   tags:
   - simple
   - getting-started
-
   options:
   - name: projectName
-  label: Name
-  inputType: text
-  defaultValue: myname
-  required: true
+    label: Name
+    inputType: text
+    defaultValue: myname
+    required: true
 
 include: ['package.json', '**.md', 'workload.yaml']
 chain:
