@@ -6,12 +6,12 @@ accelerator:
   - simple
   - getting-started
 
-options:
-- name: projectName
-label: Name
-inputType: text
-defaultValue: myname
-required: true
+  options:
+  - name: projectName
+  label: Name
+  inputType: text
+  defaultValue: myname
+  required: true
 
 include: ['package.json', '**.md', 'workload.yaml']
 chain:
