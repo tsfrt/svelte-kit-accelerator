@@ -13,7 +13,8 @@ accelerator:
     defaultValue: myname
     required: true
 engine:
-  merge: 
+  merge:
+  - include: ["**/*"] 
   - include: ['package.json', '**.md', 'workload.yaml']
     chain:
     - type: ReplaceText
