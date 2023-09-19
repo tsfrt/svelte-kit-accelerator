@@ -5,3 +5,10 @@ accelerator:
   tags:
   - simple
   - getting-started
+
+options:
+- name: projectName
+label: Name
+inputType: text
+defaultValue: myname
+required: true
