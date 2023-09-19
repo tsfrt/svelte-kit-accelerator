@@ -12,10 +12,11 @@ accelerator:
     inputType: text
     defaultValue: myname
     required: true
-engine:  
-  include: ['package.json', '**.md', 'workload.yaml']
-  chain:
-  - type: ReplaceText
-    substitutions:
-      - text: accelerator-placeholder-name
-        with: "#projectName"
+engine:
+  merge: 
+  - include: ['package.json', '**.md', 'workload.yaml']
+    chain:
+    - type: ReplaceText
+      substitutions:
+        - text: accelerator-placeholder-name
+          with: "#projectName"
