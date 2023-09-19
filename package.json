@@ -1,5 +1,5 @@
 {
-	"name": "demo-app",
+	"name": "accelerator-placeholder-name",
 	"version": "0.0.1",
 	"scripts": {
 		"start": "node build",

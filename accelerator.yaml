@@ -12,3 +12,10 @@ label: Name
 inputType: text
 defaultValue: myname
 required: true
+
+include: ['package.json', '**.md', 'workload.yaml']
+chain:
+- type: ReplaceText
+  substitutions:
+    - text: accelerator-placeholder-name
+      with: "#projectName"
