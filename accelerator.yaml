@@ -25,36 +25,27 @@ accelerator:
       - text: some API everyone uses
         value: messaging
 engine:
-  let:
-  - name: oracleBinding
-    expression: |
-      name: oracle-binding
-      ref:
-        apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
-        kind: ResourceClaim
-        name: external-oracle-db-claim
-  - name: apiBinding
-    expression: |
-      name: api-binding
-      ref:
-        apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
-        kind: ResourceClaim
-        name: external-api-claim
-  - name: messagingBinding
-    expression: |
-      name: messaging-binding
-      ref:
-        apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
-        kind: ResourceClaim
-        name: external-messaging-claim
   chain:
   - merge:
     - include: ["**/*"] 
     - include: ['package.json', '**.md', 'workload.yaml']
+    - exclude: [bindings/**]
       chain:
       - type: ReplaceText
         substitutions:
           - text: accelerator-placeholder-name
             with: "#projectName"
-      - type: ytt
+      - type: ReplaceText
+        substitutions:
+          - text: "oracle-placeholder"
+            with: "#files.contentsOf('bindings/oracle.yaml')"
+      - type: ReplaceText
+        substitutions:
+          - text: "api-placeholder"
+            with: "#files.contentsOf('bindings/api.yaml')"
+      - type: ReplaceText
+        substitutions:
+          - text: "messaging-placeholder"
+            with: "#files.contentsOf('bindings/messaging.yaml')"
+      
  

@@ -11,9 +11,9 @@ metadata:
     apps.tanzu.vmware.com/workload-type: web
 spec:
   serviceClaims:
-    - #@ data.values.oracleBinding
-    - #@ data.values.apiBinding
-    - #@ data.values.messagingBinding
+    - oracle-placeholder
+    - api-placeholder
+    - messaging-placeholder
   source:
     git:
       url: https://github.com/tsfrt/svelteKit-test
