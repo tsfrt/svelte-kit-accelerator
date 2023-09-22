@@ -27,21 +27,21 @@ accelerator:
 engine:
   let:
   - name: oracleBinding
-    value: |
+    expression: |
       name: oracle-binding
       ref:
         apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
         kind: ResourceClaim
         name: external-oracle-db-claim
   - name: apiBinding
-    value: |
+    expression: |
       name: api-binding
       ref:
         apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
         kind: ResourceClaim
         name: external-api-claim
   - name: messagingBinding
-    value: |
+    expression: |
       name: messaging-binding
       ref:
         apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
