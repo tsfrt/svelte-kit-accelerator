@@ -12,18 +12,22 @@ accelerator:
     inputType: text
     defaultValue: myname
     required: true
-  - name: bindings
-    label: Select Bindings
+  - name: oracleBinding
+    label: Include Oracle Binding
     inputType: checkbox
-    display: true
-    dataType: [string]
-    choices:
-      - text: oracle-db
-        value: oracle
-      - text: some API everyone uses
-        value: api
-      - text: some API everyone uses
-        value: messaging
+    dataType: boolean
+    defaultValue: false
+  - name: apiBinding
+    label: Include API Binding
+    inputType: checkbox
+    dataType: boolean
+    defaultValue: false
+  - name: messagingBinding
+    label: Include Messaging Binding
+    inputType: checkbox
+    dataType: boolean
+    defaultValue: false
+    
 engine:
   chain:
   - merge:
@@ -38,14 +42,17 @@ engine:
       - type: ReplaceText
         substitutions:
           - text: "oracle-placeholder"
+            condition: '#oracleBinding'
             with: "#files.contentsOf('bindings/oracle.yaml')"
       - type: ReplaceText
         substitutions:
           - text: "api-placeholder"
+            condition: '#apiBinding'
             with: "#files.contentsOf('bindings/api.yaml')"
       - type: ReplaceText
         substitutions:
           - text: "messaging-placeholder"
+            condition: '#messagingBinding'
             with: "#files.contentsOf('bindings/messaging.yaml')"
       
  
