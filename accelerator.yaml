@@ -17,35 +17,41 @@ accelerator:
     inputType: text
     defaultValue: myname
     required: true
-  - name: bindings
+  - name: oracleBinding
     label: Select Bindings
     inputType: checkbox
     display: true
     dataType: [string]
     choices:
       - text: oracle-db
-        value: |
-            - name: oracle-binding
-              ref:
-                apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
-                kind: ResourceClaim
-                name: external-oracle-db-claim
+        value: oracle
       - text: some API everyone uses
-        value: |
-          - name: api-binding
-            ref:
-              apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
-              kind: ResourceClaim
-              name: external-api-claim
+        value: api
       - text: some API everyone uses
-      - text: kafka, rabbit, etc.
-        value: |
-          - name: messaging-binding
-            ref:
-              apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
-              kind: ResourceClaim
-              name: external-messaging-claim
+        value: messaging
 engine:
+  let:
+  - name: oracleBinding
+    value: |
+      name: oracle-binding
+      ref:
+        apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
+        kind: ResourceClaim
+        name: external-oracle-db-claim
+  - name: apiBinding
+    value: |
+      name: api-binding
+      ref:
+        apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
+        kind: ResourceClaim
+        name: external-api-claim
+  - name: messagingBinding
+    value: |
+      name: messaging-binding
+      ref:
+        apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
+        kind: ResourceClaim
+        name: external-messaging-claim
   chain:
   - merge:
     - include: ["**/*"] 
@@ -55,8 +61,5 @@ engine:
         substitutions:
           - text: accelerator-placeholder-name
             with: "#projectName"
-      - type: ReplaceText
-        substitutions:
-          - text: bindings-place-holder
-            with: "#bindings"
+      - type: ytt
  
