@@ -13,6 +13,7 @@ accelerator:
     defaultValue: myname
     required: true
   - name: bindings
+    label: Select Bindings
     inputType: checkbox
     display: true
     dataType: [string]
