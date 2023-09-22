@@ -1,4 +1,4 @@
-  - name: oracle-binding
+- name: oracle-binding
     ref:
       apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
       kind: ResourceClaim
