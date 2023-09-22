@@ -54,5 +54,20 @@ engine:
         substitutions:
           - text: "messaging-placeholder"
             with: "#files.contentsOf('bindings/messaging.yaml')"
+      - type: ReplaceText
+        condition: '!#oracleBinding'
+        substitutions:
+          - text: "oracle-placeholder"
+            with: ""
+      - type: ReplaceText
+        condition: '#apiBinding'
+        substitutions:
+          - text: "api-placeholder"
+            with: ""
+      - type: ReplaceText
+        condition: '#messagingBinding'
+        substitutions:
+          - text: "messaging-placeholder"
+            with: ""
       
  
