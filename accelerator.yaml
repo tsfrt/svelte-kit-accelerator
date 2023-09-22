@@ -58,16 +58,16 @@ engine:
         condition: '!#oracleBinding'
         substitutions:
           - text: "oracle-placeholder"
-            with: "#{String.EMPTY}"
+            with: "#org.apache.commons.lang.StringUtils.EMPTY"
       - type: ReplaceText
         condition: '!#apiBinding'
         substitutions:
           - text: "api-placeholder"
-            with: "#{String.EMPTY}"
+            with: "#org.apache.commons.lang.StringUtils.EMPTY"
       - type: ReplaceText
         condition: '!#messagingBinding'
         substitutions:
           - text: "messaging-placeholder"
-            with: "#{String.EMPTY}"
+            with: "#org.apache.commons.lang.StringUtils.EMPTY"
       
  
