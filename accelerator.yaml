@@ -12,12 +12,7 @@ accelerator:
     inputType: text
     defaultValue: myname
     required: true
-  - name: somethingElse
-    label: test
-    inputType: text
-    defaultValue: myname
-    required: true
-  - name: oracleBinding
+  - name: bindings
     label: Select Bindings
     inputType: checkbox
     display: true
