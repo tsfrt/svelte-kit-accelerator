@@ -12,12 +12,44 @@ accelerator:
     inputType: text
     defaultValue: myname
     required: true
+  - name: bindings
+    inputType: checkbox
+    display: true
+    dataType: [string]
+    choices:
+      - text: oracle-db
+        value: |
+            - name: oracle-binding
+              ref:
+                apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
+                kind: ResourceClaim
+                name: external-oracle-db-claim
+      - text: some API everyone uses
+        value: |
+          - name: api-binding
+            ref:
+              apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
+              kind: ResourceClaim
+              name: external-api-claim
+      - text: some API everyone uses
+      - text: kafka, rabbit, etc.
+        value: |
+          - name: messaging-binding
+            ref:
+              apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
+              kind: ResourceClaim
+              name: external-messaging-claim
 engine:
-  merge:
-  - include: ["**/*"] 
-  - include: ['package.json', '**.md', 'workload.yaml']
-    chain:
-    - type: ReplaceText
-      substitutions:
-        - text: accelerator-placeholder-name
-          with: "#projectName"
+  chain:
+  - merge:
+    - include: ["**/*"] 
+    - include: ['package.json', '**.md', 'workload.yaml']
+      chain:
+      - type: ReplaceText
+        substitutions:
+          - text: accelerator-placeholder-name
+            with: "#projectName"
+  - merge:
+    - include: [ "workload.yaml"]
+      chain:
+        - type: YTT

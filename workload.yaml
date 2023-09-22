@@ -1,15 +1,22 @@
+#@ load("@ytt:data", "data")
+
 ---
 apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
-  name: accelerator-placeholder-name
+  name: svelete-app2
   namespace: develop
   labels:
-    app.kubernetes.io/part-of: accelerator-placeholder-name
+    app.kubernetes.io/part-of: svelete-app
     apps.tanzu.vmware.com/workload-type: web
 spec:
+  serviceClaims: #@ data.values.bindings
   source:
     git:
-      url: https://github.com/tsfrt/accelerator-placeholder-name.git
+      url: https://github.com/tsfrt/svelteKit-test
       ref:
-        tag: main
+        branch: main
+  build:
+    env:
+      - name: NODE_OPTIONS
+        value: ""
