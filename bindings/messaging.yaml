@@ -1,5 +1,5 @@
 name: messaging-binding
-ref:
-  apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
-  kind: ResourceClaim
-  name: external-messaging-claim
+    ref:
+      apiVersion: services.apps.tanzu.vmware.com/v1alpha1                
+      kind: ResourceClaim
+      name: external-messaging-claim
