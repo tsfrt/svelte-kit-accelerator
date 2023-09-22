@@ -2,10 +2,10 @@
 apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
-  name: svelete-app2
+  name: accelerator-placeholder-name
   namespace: develop
   labels:
-    app.kubernetes.io/part-of: svelete-app
+    app.kubernetes.io/part-of: accelerator-placeholder-name
     apps.tanzu.vmware.com/workload-type: web
 spec:
   serviceClaims:
@@ -14,7 +14,7 @@ spec:
     messaging-placeholder
   source:
     git:
-      url: https://github.com/tsfrt/svelteKit-test
+      url: https://github.com/tsfrt/accelerator-placeholder-name
       ref:
         branch: main
   build:
