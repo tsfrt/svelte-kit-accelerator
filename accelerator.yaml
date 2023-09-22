@@ -58,16 +58,16 @@ engine:
         condition: '!#oracleBinding'
         substitutions:
           - text: "oracle-placeholder"
-            with: "#{null}"
+            with: "#null"
       - type: ReplaceText
         condition: '!#apiBinding'
         substitutions:
           - text: "api-placeholder"
-            with: "#{null}"
+            with: "#null"
       - type: ReplaceText
         condition: '!#messagingBinding'
         substitutions:
           - text: "messaging-placeholder"
-            with: "#{null}"
+            with: "#null"
       
  
