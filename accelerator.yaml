@@ -40,19 +40,19 @@ engine:
           - text: accelerator-placeholder-name
             with: "#projectName"
       - type: ReplaceText
+        condition: '#oracleBinding'
         substitutions:
           - text: "oracle-placeholder"
-            condition: '#oracleBinding'
             with: "#files.contentsOf('bindings/oracle.yaml')"
       - type: ReplaceText
+        condition: '#apiBinding'
         substitutions:
           - text: "api-placeholder"
-            condition: '#apiBinding'
             with: "#files.contentsOf('bindings/api.yaml')"
       - type: ReplaceText
+        condition: '#messagingBinding'
         substitutions:
           - text: "messaging-placeholder"
-            condition: '#messagingBinding'
             with: "#files.contentsOf('bindings/messaging.yaml')"
       
  
