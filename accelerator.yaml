@@ -60,12 +60,12 @@ engine:
           - text: "oracle-placeholder"
             with: "#{null}"
       - type: ReplaceText
-        condition: '#apiBinding'
+        condition: '!#apiBinding'
         substitutions:
           - text: "api-placeholder"
             with: "#{null}"
       - type: ReplaceText
-        condition: '#messagingBinding'
+        condition: '!#messagingBinding'
         substitutions:
           - text: "messaging-placeholder"
             with: "#{null}"
