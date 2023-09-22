@@ -50,7 +50,8 @@ engine:
         substitutions:
           - text: accelerator-placeholder-name
             with: "#projectName"
-  - merge:
-    - include: [ "workload.yaml"]
-      chain:
-        - type: YTT
+      - type: ReplaceText
+        substitutions:
+          - text: bindings-place-holder
+            with: "#bindings"
+ 
